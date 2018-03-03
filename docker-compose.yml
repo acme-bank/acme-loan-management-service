@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  acme_loan_management:
+    build:
+      context: .
+      args:
+        APPLICATION_NAME: acme-loan-management
+    image: docker.acme.com/acme-loan-management:latest
+    container_name: acme_loan_management_01
+    hostname: loan-management
+    domainname: acme.com
+    ports:
+      - 8005:8080
+    networks:
+      acme:
+
+networks:
+  acme:
+    external:
+      name: acme
