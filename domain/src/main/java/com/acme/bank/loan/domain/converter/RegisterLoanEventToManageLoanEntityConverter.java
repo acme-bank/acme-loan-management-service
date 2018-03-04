@@ -8,11 +8,12 @@ import org.springframework.stereotype.Component;
 public class RegisterLoanEventToManageLoanEntityConverter extends AbstractConverter<RegisterLoanEvent, ManageLoanEntity> {
 
     @Override
-    public ManageLoanEntity convert(RegisterLoanEvent event) {
+    public ManageLoanEntity convert(RegisterLoanEvent registerLoanEvent) {
         ManageLoanEntity manageLoanEntity = new ManageLoanEntity();
-        manageLoanEntity.setEventId(event.getUuid());
-        manageLoanEntity.setAmount(event.getAmount());
-        manageLoanEntity.setRegisteredTimestamp(event.getRegisteredTimestamp());
+        manageLoanEntity.setEventId(registerLoanEvent.getEventId());
+        manageLoanEntity.setPersonId(registerLoanEvent.getPersonId());
+        manageLoanEntity.setAmount(registerLoanEvent.getAmount());
+        manageLoanEntity.setRegisteredTimestamp(registerLoanEvent.getRegisteredTimestamp());
         return manageLoanEntity;
     }
 }

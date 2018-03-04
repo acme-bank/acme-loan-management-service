@@ -52,44 +52,42 @@ public class ManageLoanService {
 
     public void save(RegisterLoanEvent event) {
         ManageLoanEntity manageLoanEntity = conversionService.convert(event, ManageLoanEntity.class);
-        PersonEntity personEntity = personRepository.findBySsn(event.getPersonalId());
-        manageLoanEntity.setPersonId(personEntity.getPersonId());
         manageLoanRepository.save(manageLoanEntity);
     }
 
     public void save(ValidateLoanEvent event) {
-        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getUuid());
+        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getEventId());
         entity.setValidatedTimestamp(event.getValidatedTimestamp());
         manageLoanRepository.save(entity);
     }
 
     public void save(EnrichLoanEvent event) {
-        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getUuid());
+        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getEventId());
         entity.setEnrichedTimestamp(event.getEnrichedTimestamp());
         manageLoanRepository.save(entity);
     }
 
     public void save(PendingLoanEvent event) {
-        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getUuid());
+        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getEventId());
         entity.setPendingTimestamp(event.getPendingTimestamp());
         manageLoanRepository.save(entity);
     }
 
     public void save(AugmentLoanEvent event) {
-        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getUuid());
+        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getEventId());
         entity.setAugmentedTimestamp(event.getAugmentedTimestamp());
         manageLoanRepository.save(entity);
     }
 
     public void save(EntitleLoanEvent event) {
-        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getUuid());
+        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getEventId());
         entity.setDetails(event.getDetails());
         entity.setEntitledTimestamp(event.getEntitledTimestamp());
         manageLoanRepository.save(entity);
     }
 
     public void save(RejectLoanEvent event) {
-        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getUuid());
+        ManageLoanEntity entity = manageLoanRepository.findByEventId(event.getEventId());
         entity.setDetails(event.getDetails());
         entity.setRejectedTimestamp(event.getRejectedTimestamp());
         manageLoanRepository.save(entity);

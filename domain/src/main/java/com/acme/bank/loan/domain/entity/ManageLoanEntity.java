@@ -12,9 +12,9 @@ public class ManageLoanEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private UUID eventId;
+    private UUID personId;
     private double amount;
     private String details;
-    private UUID personId;
     private ZonedDateTime registeredTimestamp;
     private ZonedDateTime validatedTimestamp;
     private ZonedDateTime enrichedTimestamp;
@@ -39,6 +39,14 @@ public class ManageLoanEntity {
         this.eventId = eventId;
     }
 
+    public UUID getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(UUID personId) {
+        this.personId = personId;
+    }
+
     public double getAmount() {
         return amount;
     }
@@ -53,14 +61,6 @@ public class ManageLoanEntity {
 
     public void setDetails(String details) {
         this.details = details;
-    }
-
-    public UUID getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(UUID personId) {
-        this.personId = personId;
     }
 
     public ZonedDateTime getRegisteredTimestamp() {

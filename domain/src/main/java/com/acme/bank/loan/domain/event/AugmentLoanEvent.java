@@ -5,15 +5,15 @@ import java.util.UUID;
 
 public class AugmentLoanEvent {
 
-    private UUID uuid;
+    private UUID eventId;
     private ZonedDateTime augmentedTimestamp;
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getEventId() {
+        return eventId;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setEventId(UUID eventId) {
+        this.eventId = eventId;
     }
 
     public ZonedDateTime getAugmentedTimestamp() {

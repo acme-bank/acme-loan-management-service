@@ -2,7 +2,6 @@ package com.acme.bank.loan.web.resource;
 
 import com.acme.bank.loan.domain.model.ManageLoan;
 import com.acme.bank.loan.service.service.ManageLoanService;
-import com.acme.bank.loan.web.helper.WebHelper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +37,8 @@ public class ManageLoanResource {
 
     @ApiOperation(value = "Get managed loan by event ID", httpMethod = "GET", response = ManageLoan.class)
     @GetMapping(path = "/{eventId}")
-    public ResponseEntity<ManageLoan> get(@PathVariable("eventId") String eventId) {
-        ManageLoan event = service.get(WebHelper.parseUUID(eventId));
+    public ResponseEntity<ManageLoan> get(@PathVariable("eventId") UUID eventId) {
+        ManageLoan event = service.get(eventId);
         return event != null ? ResponseEntity.ok(event) : ResponseEntity.noContent().build();
     }
 }

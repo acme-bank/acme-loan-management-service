@@ -5,15 +5,15 @@ import java.util.UUID;
 
 public class EnrichLoanEvent {
 
-    private UUID uuid;
+    private UUID eventId;
     private ZonedDateTime enrichedTimestamp;
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getEventId() {
+        return eventId;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setEventId(UUID eventId) {
+        this.eventId = eventId;
     }
 
     public ZonedDateTime getEnrichedTimestamp() {

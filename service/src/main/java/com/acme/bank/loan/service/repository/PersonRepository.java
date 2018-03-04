@@ -10,7 +10,5 @@ import java.util.UUID;
 @Repository
 public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
 
-    PersonEntity findBySsn(String ssn);
-
     PersonEntity findByPersonId(UUID personId);
 }
